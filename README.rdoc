@@ -1,0 +1,17 @@
+= FindAllByDateRange
+
+find_all_by_date_range allows you to find ActiveRecord::Base models based on a date range.
+By default find_all_by_date_range uses the :created_at column of the model to search. This can be changed to something else by passing {:use => :column_name} as an option.
+
+== Install
+  gem install find_all_by_date_range --source http://gems.github.com
+
+== Usage
+  Find all records by :created_at column (Default)
+  Invoice.find_all_by_date_range(1.year.ago,Time.now)
+  
+  Find all records by a custom column name
+  Invoice.find_all_by_date_range(1.year.ago,Time.now,{:use => :invoiced_on})
+  
+  Find all records with limit option
+  Invoice.find_all_by_date_range(1.year.ago,Time.now,{:limit => 5})
